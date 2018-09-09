@@ -29,11 +29,15 @@ function prevPhoto() {
 };
 
 btnNext.onclick = function() {
-	showCurrentPhoto(nextPhoto());
+	nextPhoto();
+	showCurrentPhoto();
+//	showCurrentPhoto(nextPhoto());
 };
 
 btnPrev.onclick = function() {
-	showCurrentPhoto(prevPhoto());
+	prevPhoto();
+	showCurrentPhoto();
+//	showCurrentPhoto(prevPhoto());
 };
 
 // оффтоп: пример с листанием стрелками с клавиатуры подсмотрел здесь:
@@ -42,10 +46,23 @@ btnPrev.onclick = function() {
 document.addEventListener('keydown', function(key) {
 	let keyCode = key.which;
 	if (keyCode === 39) {
-		showCurrentPhoto(nextPhoto());		
+		nextPhoto();
+		showCurrentPhoto();
+//		showCurrentPhoto(nextPhoto());
 	} else if (keyCode === 37) {
-		showCurrentPhoto(prevPhoto());
+		prevPhoto();
+		showCurrentPhoto();
+//		showCurrentPhoto(prevPhoto());
 	} else {
 		return;
 	}
 });
+
+/* Замечание преподавателя: 
+Отлично, Александр.
+В третьем задании не стоило делать вот так:
+		showCurrentPhoto(prevPhoto());
+тут создается ощущение, что функция showCurrentPhoto принимает аргумент, но это не так. Лучше разбить на две строки:
+		prevPhoto();
+		showCurrentPhoto();
+ */
