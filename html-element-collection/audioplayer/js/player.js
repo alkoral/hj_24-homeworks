@@ -23,7 +23,12 @@ btnNext.onclick = function() {
 	} else {
 		i++;
 	}
-	getCurrentSong();
+	if(player.classList.contains('play')) {
+		getCurrentSong();
+	} else {
+		song.src = `./mp3/${songList[i]}.mp3`;
+		songTitle.title = `${songList[i]}`;
+	}
 }
 
 btnPrev.onclick = function() {
@@ -32,7 +37,12 @@ btnPrev.onclick = function() {
 	} else {
 		i--;
 	}
-	getCurrentSong();
+	if(player.classList.contains('play')) {
+		getCurrentSong();
+	} else {
+		song.src = `./mp3/${songList[i]}.mp3`;
+		songTitle.title = `${songList[i]}`;
+	}
 }
 
 btnPlayPause.onclick = function() {
